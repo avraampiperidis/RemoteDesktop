@@ -2,5 +2,5 @@
 RemoteDesktopController java/fx/JNI-c++
 
 a Simple java Remote desktop controller 
-on testing. /n
+on testing. <br>
 dll RemoteClientFx.dll must be on same directory with .jar
