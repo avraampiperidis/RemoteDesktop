@@ -2,6 +2,7 @@ package RemoteApp.network;
 
 
 import RemoteApp.Constants;
+import RemoteApp.KeyInterface;
 import RemoteApp.view.WindowScreen;
 import RemoteApp.model.serializables.ClientStatus;
 import RemoteApp.model.serializables.ImageBlock;
@@ -24,8 +25,7 @@ import RemoteApp.model.serializables.MultiCast;
 import RemoteApp.network.socket.SocketView;
 
 
-public class ClientChannelService implements Runnable {
-
+public class ClientChannelService implements Runnable,KeyInterface {
     
     private static String remotehost;
     
@@ -33,9 +33,6 @@ public class ClientChannelService implements Runnable {
     
     private ScreenInfo screen;
     
-    private static final String ALGORITHM = "AES";
-    private static final String TRANSFORMATION = "AES";
-    private static final String KEY = "kdif(34&4']qvDF@";
     private ThreadContainer tc;
     private static Constants con;
     
