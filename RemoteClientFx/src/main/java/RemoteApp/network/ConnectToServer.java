@@ -2,6 +2,7 @@ package RemoteApp.network;
 
 
 import RemoteApp.Constants;
+import RemoteApp.KeyInterface;
 import RemoteApp.ThreadContainer;
 import RemoteApp.model.serializables.ClientStatus;
 import RemoteApp.model.serializables.ScreenInfo;
@@ -22,15 +23,12 @@ import RemoteApp.model.serializables.MultiCast;
 import RemoteApp.network.socket.SocketView;
 
 
-public class ConnectToServer implements Runnable {
+public class ConnectToServer implements Runnable,KeyInterface {
 
     
     private static  String password;
     private boolean errorex = false;
     
-    private static final String ALGORITHM = "AES";
-    private static final String TRANSFORMATION = "AES";
-    private static final String KEY = "kdif(34&4']qvDF@";
     private int port;
     private String serverip;
     private MultiCast mc;
