@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 
-public class NetworkInter {
+public class NetworkInter implements NetInterface {
     
-    private static ArrayList<String> netips;
+    public static ArrayList<String> netips;
     
-    public static ArrayList<String> getAllIp() throws SocketException {
+    @Override
+    public ArrayList<String> getAllIp() throws SocketException {
         netips = new ArrayList<>();
         Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
         for (NetworkInterface netint : Collections.list(nets)) {
@@ -22,7 +23,7 @@ public class NetworkInter {
     }
     
     
-    private static void displayInterfaceInformation(NetworkInterface netint) throws SocketException {
+    private  void displayInterfaceInformation(NetworkInterface netint) throws SocketException {
         if(netint.getName().matches("eth.") || netint.getName().matches("wlan.")) {
             
         Enumeration<InetAddress> inetAddresses = netint.getInetAddresses();
