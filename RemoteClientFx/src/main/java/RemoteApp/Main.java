@@ -18,6 +18,7 @@ import RemoteApp.view.WindowScreen;
 
 public class Main extends Application {
     
+    
     private static ThreadContainer tc;
     
 	@Override
@@ -44,10 +45,11 @@ public class Main extends Application {
                                     MultiCastStatus.interruptSocket();
                                     ThreadContainer.getMulticast().interrupt();
                                     ThreadContainer.getUithread().interrupt();   
+                                    KillProcCplusplus.killJavaProcessJni();
                                 } catch(Exception ex) {
                                         
                                 } finally {
-                                KillProcCplusplus.killJavaProcessJni();
+                                
                             }
                                 
                             }
