@@ -1,6 +1,5 @@
 package RemoteApp;
 
-import RemoteApp.JNI.KillProcCplusplus;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ import javafx.util.Callback;
 import RemoteApp.model.ListViewModel;
 import RemoteApp.model.serializables.MultiCast;
 import RemoteApp.network.MultiCastStatus;
+import RemoteApp.network.NetInterface;
 import RemoteApp.network.NetworkInter;
 
 public class RemoteClientController implements Initializable {
@@ -45,7 +45,8 @@ public class RemoteClientController implements Initializable {
             
                 ArrayList<String> ips = new ArrayList<>();
                 try {
-                    ips = NetworkInter.getAllIp();                                     
+                    NetInterface net = new NetworkInter();                 
+                    ips = net.getAllIp();                                     
                     combobox.getItems().addAll(ips);
                     combobox.getSelectionModel().select(0);                  
                 } catch (SocketException ex) {
@@ -53,7 +54,7 @@ public class RemoteClientController implements Initializable {
                 }
                
                     
-                  // updateUithread = 
+                  
                    ThreadContainer.setUithread(new Thread() {
                         @Override
                         public void run() {
@@ -62,12 +63,11 @@ public class RemoteClientController implements Initializable {
                         
                             Thread.sleep(3500);
                             ip = combobox.getSelectionModel().getSelectedItem().toString();
-                            list = new ArrayList<>();
-                            
+                            list = new ArrayList<>();                         
                             Iterator<Entry<String,MultiCast>> it = Constants.getNetworkmap().entrySet().iterator();
                                 while(it.hasNext()) {
                                     Entry<String,MultiCast> pair = it.next();
-                                        list.add(new ListViewModel(pair.getValue().getHostName(),pair.getValue().getIp(),pair.getValue().getPort(),pair.getValue().isActive(),pair.getValue().isPasswordRequired()));
+                                    list.add(new ListViewModel(pair.getValue().getHostName(),pair.getValue().getIp(),pair.getValue().getPort(),pair.getValue().isActive(),pair.getValue().isPasswordRequired()));                              
                                 }
                             
                             Constants.resetHashMap();                            
