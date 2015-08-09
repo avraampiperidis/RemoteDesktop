@@ -14,8 +14,6 @@ import RemoteApp.RemoteClientController;
 import RemoteApp.ThreadContainer;
 import RemoteApp.model.serializables.MultiCast;
 import RemoteApp.network.ConnectToServer;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 
 
@@ -42,16 +40,15 @@ public class ListViewModel   {
             @Override
             public void handle(ActionEvent event) {
                 if(port != 5900) {
-                    if(Constants.isConnected == false) {
-                        Constants.thishost = RemoteClientController.ip;
-                        MultiCast mc = new MultiCast(ip,hostname,active," ",port,password);
+                Constants.thishost = RemoteClientController.ip;
+                MultiCast mc = new MultiCast(ip,hostname,active," ",port,password);
                 
-                        if(password == false) {
-                            ConnectToServer.setPassword("");
-                            ThreadContainer threadcontainer = new ThreadContainer();
-                            threadcontainer.setConnectToServerThreadRunnableAndStart(new ConnectToServer(mc,threadcontainer));
-                        } else {                   
-                            TextInputDialog dialog = new TextInputDialog("");
+                if(password == false) {
+                    ConnectToServer.setPassword("");
+                    ThreadContainer threadcontainer = new ThreadContainer();
+                    threadcontainer.setConnectToServerThreadRunnableAndStart(new ConnectToServer(mc,threadcontainer));
+                } else {                   
+                    TextInputDialog dialog = new TextInputDialog("");
 				dialog.setTitle("           ");
 				dialog.setHeaderText("Enter password              ");
 
@@ -70,15 +67,6 @@ public class ListViewModel   {
 					
 				}
                     
-                        }
-                    } else {
-                        
-                        Alert alert = new Alert(AlertType.WARNING);
-                        alert.setTitle("Warning Dialog");
-                        alert.setHeaderText("First Disconnect from remote pc");
-                        alert.setContentText("press disconnect button to disconnect from remote pc \nor just close the window");
-                        alert.showAndWait();
-                        
                     }
                 }
             }

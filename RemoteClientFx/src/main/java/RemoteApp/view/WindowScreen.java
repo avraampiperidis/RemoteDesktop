@@ -325,7 +325,6 @@ public class WindowScreen extends javax.swing.JFrame {
        
        
        this.dispose();
-       Constants.isConnected = false;
        
         
     }//GEN-LAST:event_disconnectbtnMouseClicked
@@ -392,7 +391,6 @@ public class WindowScreen extends javax.swing.JFrame {
                 tc.getclientChannelServiceThread().interrupt();
        
                 c.setClientChannelService(false);
-                Constants.isConnected = false;
                 
             }
         });

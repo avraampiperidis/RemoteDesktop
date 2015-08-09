@@ -37,7 +37,7 @@ public class ClientChannelService implements Runnable,KeyInterface {
     private static Constants con;
     
     public ClientChannelService(int p,ScreenInfo screen,MultiCast mc,ThreadContainer tc,Constants c) {
-        Constants.isConnected = true;
+        
         port = mc.getPort();
         this.screen = screen;
         remotehost = mc.getHostName();
