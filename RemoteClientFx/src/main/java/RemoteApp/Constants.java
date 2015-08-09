@@ -11,6 +11,7 @@ public final class Constants {
     
     private static int port5900 = 5900;
     private Dimension dim;
+    public static boolean isConnected = false;
     private boolean clientchannelservice = true;
     private boolean connectToServer = true;
     private boolean blockInputImage = true;
