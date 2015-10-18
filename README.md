@@ -11,12 +11,6 @@ https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot2.
 <br>
 https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot3.PNG?raw=true
 <br>
-download jars
-<br>
-RemoteClient https://github.com/zeronerone/RemoteDesktop/blob/master/build-jars/RemoteClient/RemoteClient.rar?raw=true
-<br>
-RemoteServer https://github.com/zeronerone/RemoteDesktop/blob/master/build-jars/RemoteServer/RemoteServer-1.0-SNAPSHOT.zip?raw=true
-<br>
 
 <p>
     <a href="https://twitter.com/PageD_" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @PageD_</a>
