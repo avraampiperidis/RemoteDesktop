@@ -7,7 +7,7 @@ currently  testing. <br>
 screenshots <br>
 <img src="./screenshots/screenshot1.PNG" width="350" />
 <br>
-<img src="./screenshots/screenshot2.PNG" width="350" />
+<img src="./screenshots/screenshot2.PNG" width="150" />
 <br>
 <img src="./screenshots/screenshot3.PNG" width="650" />
 <br>
