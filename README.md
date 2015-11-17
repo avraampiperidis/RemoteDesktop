@@ -1,10 +1,11 @@
 # RemoteDesktop
 RemoteDesktopController java/fx/JNI-c++
 
-a Simple java Remote desktop controller 
-on testing. <br>
+a Simple java Remote desktop controller. 
+currently  testing. <br>
 
 screenshots <br>
+<img src="./screenshots/screenshot1.PNG" width="650" />
 https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot1.PNG?raw=true
 <br>
 https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot2.PNG?raw=true
