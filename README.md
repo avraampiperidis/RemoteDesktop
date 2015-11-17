@@ -6,11 +6,10 @@ currently  testing. <br>
 
 screenshots <br>
 <img src="./screenshots/screenshot1.PNG" width="350" />
-https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot1.PNG?raw=true
 <br>
-https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot2.PNG?raw=true
+<img src="./screenshots/screenshot2.PNG" width="350" />
 <br>
-https://github.com/zeronerone/RemoteDesktop/blob/master/screenshots/screenshot3.PNG?raw=true
+<img src="./screenshots/screenshot3.PNG" width="650" />
 <br>
 
 <p>
