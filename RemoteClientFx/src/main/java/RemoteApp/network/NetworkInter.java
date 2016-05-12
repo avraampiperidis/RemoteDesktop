@@ -24,7 +24,7 @@ public class NetworkInter implements NetInterface {
     
     
     private  void displayInterfaceInformation(NetworkInterface netint) throws SocketException {
-        if(netint.getName().matches("eth.") || netint.getName().matches("wlan.")) {
+        if(netint.getName().matches("eth.") || netint.getName().matches("wlan.") || netint.getName().matches("net.")) {
             
         Enumeration<InetAddress> inetAddresses = netint.getInetAddresses();
             for (InetAddress inetAddress : Collections.list(inetAddresses)) {

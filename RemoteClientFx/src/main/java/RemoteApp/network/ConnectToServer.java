@@ -69,10 +69,10 @@ public class ConnectToServer implements Runnable,KeyInterface {
             
             SocketView.setServerSocket(port);
             SocketView.getServerSocket().setReuseAddress(true);
-            Constants cons = new Constants();
-            if(cons.isRunningconnectToServer() == false) {
-                cons.setRunningconnectToServer(true);
-                cons.setClientChannelService(true);
+            
+            if(Constants.isRunningconnectToServer() == false) {
+                Constants.setRunningconnectToServer(true);
+                Constants.setClientChannelService(true);
             }
             
             while(!Thread.currentThread().isInterrupted()) {
@@ -98,8 +98,8 @@ public class ConnectToServer implements Runnable,KeyInterface {
                         
                             SocketView.getServerSocket().close();
                             
-                            cons.setRunningconnectToServer(false);          
-                            tc.setclientChannelServiceThreadRunnableAndStart(new  ClientChannelService(port,screen,mc,tc,cons));
+                            Constants.setRunningconnectToServer(false);          
+                            tc.setclientChannelServiceThreadRunnableAndStart(new  ClientChannelService(port,screen,mc,tc));
                             break;
                         } else {
                             break;

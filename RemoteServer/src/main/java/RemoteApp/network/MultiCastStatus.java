@@ -30,6 +30,8 @@ public class MultiCastStatus implements Runnable {
                         
                         InetAddress group = InetAddress.getByName(multicast);
                         
+                        Logger.getLogger(this.getClass().getName()).log(Level.INFO, serveradapters.getSelectedItem().toString());
+                        
                             MultiCast mc = new MultiCast(serveradapters.getSelectedItem().toString(),InetAddress.getLocalHost().getHostName(),Constants.status,"server",Constants.getServerPort(),Constants.isPasswordRequired());
                             
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();

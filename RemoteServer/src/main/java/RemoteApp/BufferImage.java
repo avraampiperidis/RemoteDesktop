@@ -16,7 +16,6 @@ public class BufferImage implements Runnable {
     @Override
     public void run() {
 
-        synchronized (this) {
             Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
             Rectangle rect = new Rectangle(0, 0, (int) dim.getWidth(), (int) dim.getHeight());
             try {
@@ -24,7 +23,7 @@ public class BufferImage implements Runnable {
                           
                     image = new Robot().createScreenCapture(rect);
                     
-                    Thread.sleep(700);
+                    Thread.sleep(350);
                 }
              } catch (InterruptedException | AWTException e) {
                  
@@ -32,17 +31,15 @@ public class BufferImage implements Runnable {
                 
             }
 
-        }
-
     }
 
 
 
-    public static synchronized BufferedImage getImage() {
+    public static  BufferedImage getImage() {
         return image;
     }
 
-    public static synchronized BufferedImage getStartUpScrenShot() throws AWTException {
+    public static  BufferedImage getStartUpScrenShot() throws AWTException {
         
             Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
             Rectangle rect = new Rectangle(0, 0, (int) dim.getWidth(), (int) dim.getHeight());

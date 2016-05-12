@@ -33,7 +33,7 @@ import RemoteApp.MouseKeyboardFunctions;
 import RemoteApp.network.socket.SocketView;
 
 
-public class ServerChannelService implements Runnable {
+public class ServerChannelService implements Runnable  {
 
         
     private Dimension fullScreen;
@@ -46,18 +46,15 @@ public class ServerChannelService implements Runnable {
     
     public static boolean shift = false;
     
-    private static final String ALGORITHM = "AES";
-    private static final String TRANSFORMATION = "AES";
-    private static final String KEY = "kdif(34&4']qvDF@";
     
-    private static final Key secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
+    private static final Key secretKey = new SecretKeySpec(Constants.KEY.getBytes(), Constants.ALGORITHM);
     private static Cipher cipher;
     
     
     public ServerChannelService(ScreenInfo screen,Dimension fullscreen,String host) {
         
         try {
-            cipher  =Cipher.getInstance(TRANSFORMATION);
+            cipher  =Cipher.getInstance(Constants.TRANSFORMATION);
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException ex) {
             Logger.getLogger(ServerChannelService.class.getName()).log(Level.SEVERE, null, ex);
@@ -255,7 +252,8 @@ public class ServerChannelService implements Runnable {
    
     //unused
     @Override
-    public  void run() {           
+    public  void run() {
+        
     }
     
     

@@ -241,7 +241,7 @@ public class RemoteServerForm extends javax.swing.JFrame {
             try {
             Thread.sleep(4000);
                 } catch (InterruptedException ex) {
-            Logger.getLogger(RemoteServerForm.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(RemoteServerForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
             tempthread.interrupt();
             

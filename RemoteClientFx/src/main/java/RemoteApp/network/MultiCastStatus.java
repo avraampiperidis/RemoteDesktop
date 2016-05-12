@@ -29,7 +29,7 @@ public class MultiCastStatus implements Runnable {
             try {
                            
                         String multicast = "224.0.0.1";
-                        int port = 5900;
+                        int port = Constants.getPort();
                         int bufsize = 1024 * 4;
                             
                         InetAddress group = InetAddress.getByName(multicast);

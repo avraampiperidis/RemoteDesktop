@@ -23,12 +23,16 @@ public class NetworkInter {
     
     
     private static void displayInterfaceInformation(NetworkInterface netint) throws SocketException {
-        if(netint.getName().matches("eth.") || netint.getName().matches("wlan.")) {
+        if(netint.getName().matches("eth.") || netint.getName().matches("wlan.") || netint.getName().matches("net.")) {
+            
+            System.out.println(netint.getName());
             
         Enumeration<InetAddress> inetAddresses = netint.getInetAddresses();
             for (InetAddress inetAddress : Collections.list(inetAddresses)) {
+                System.out.println(inetAddress.getHostAddress());
                 if(!inetAddress.toString().isEmpty() && !inetAddress.toString().contains(":")) {
                     netips.add(inetAddress.toString().replace('/',' ').trim());
+                    
                 }
                 
             }

@@ -35,14 +35,12 @@ public class WindowScreen extends javax.swing.JFrame {
     private String hostname;
     private int port;
     private ThreadContainer tc;
-    private Constants con;
    
-    public WindowScreen(final ScreenInfo screen,MultiCast mc,ThreadContainer tc,Constants c) {
+    public WindowScreen(final ScreenInfo screen,MultiCast mc,ThreadContainer tc) {
         
         this.tc = tc;
-        con = c;
         
-        con.setDimension(new Dimension(screen.getFullWidth()+35,screen.getFullHeight()+65));
+        Constants.setDimension(new Dimension(screen.getFullWidth()+35,screen.getFullHeight()+65));
         initComponents();
         
         hostname = mc.getHostName();
@@ -77,7 +75,7 @@ public class WindowScreen extends javax.swing.JFrame {
                     
                     Thread.sleep(500);
                     if(isMouseOverPanel() == true) {
-                        con.setBlockImage(false);
+                        Constants.setBlockImage(false);
                         int x = MouseInfo.getPointerInfo().getLocation().x - panel.getLocationOnScreen().x;
                         int y = MouseInfo.getPointerInfo().getLocation().y - panel.getLocationOnScreen().y;                           
                         MouseKeyboardStatus mks = new MouseKeyboardStatus(x,y,false,false,false,false,false,0,false,false,false,0);
@@ -321,7 +319,7 @@ public class WindowScreen extends javax.swing.JFrame {
        tc.getConnectToServerThread().interrupt();
        tc.getclientChannelServiceThread().interrupt();
        
-       con.setClientChannelService(false);
+       Constants.setClientChannelService(false);
        
        
        this.dispose();
@@ -344,7 +342,7 @@ public class WindowScreen extends javax.swing.JFrame {
    
     
     
-    public static void windowsScreen(final ScreenInfo screen,final MultiCast mc,final ThreadContainer tc,final Constants c) {
+    public static void windowsScreen(final ScreenInfo screen,final MultiCast mc,final ThreadContainer tc) {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -360,7 +358,7 @@ public class WindowScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-               new WindowScreen(screen,mc,tc,c).setVisible(true);
+               new WindowScreen(screen,mc,tc).setVisible(true);
                
             }
         });
@@ -391,7 +389,7 @@ public class WindowScreen extends javax.swing.JFrame {
                 tc.getConnectToServerThread().interrupt();
                 tc.getclientChannelServiceThread().interrupt();
        
-                c.setClientChannelService(false);
+                Constants.setClientChannelService(false);
                 Constants.isConnected = false;
                 
             }

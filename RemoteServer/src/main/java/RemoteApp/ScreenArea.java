@@ -24,7 +24,6 @@ public class ScreenArea implements   Runnable  {
 
 
     public ScreenArea(Dimension dimension, int block) {
-        synchronized (this) {
 
             width = (int) dimension.getWidth() / Constants.getScreenDivider();
             height = (int) dimension.getHeight() / Constants.getScreenDivider();
@@ -32,7 +31,6 @@ public class ScreenArea implements   Runnable  {
 
             this.block = block;
 
-        }
     }
 
 
@@ -69,7 +67,7 @@ public class ScreenArea implements   Runnable  {
                 bufferedImage = cropImage(BufferImage.getImage(),getRectangle());
                 
                 while(Constants.isScreenArea()) {
-                    Thread.sleep(750);
+                    Thread.sleep(400);
 
                     tempimage = cropImage(BufferImage.getImage(), getRectangle());
                     if(comparebuffereimg(bufferedImage, tempimage)) {

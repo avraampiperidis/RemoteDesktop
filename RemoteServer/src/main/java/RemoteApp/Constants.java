@@ -6,6 +6,12 @@ import RemoteApp.model.serializables.MultiCast;
 
 public final class Constants {
     
+    private Constants() {}
+    
+    public static final String ALGORITHM = "AES";
+    public static final String TRANSFORMATION = "AES";
+    public static final String KEY = "kdif(34&4']qvDF@";
+    
     
     private static int serverport = 5900;
     private static boolean stopServer = true;

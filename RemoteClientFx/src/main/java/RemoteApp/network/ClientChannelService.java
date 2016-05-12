@@ -34,16 +34,14 @@ public class ClientChannelService implements Runnable,KeyInterface {
     private ScreenInfo screen;
     
     private ThreadContainer tc;
-    private static Constants con;
     
-    public ClientChannelService(int p,ScreenInfo screen,MultiCast mc,ThreadContainer tc,Constants c) {
+    public ClientChannelService(int p,ScreenInfo screen,MultiCast mc,ThreadContainer tc) {
         Constants.isConnected = true;
         port = mc.getPort();
         this.screen = screen;
         remotehost = mc.getHostName();
-        WindowScreen.windowsScreen(screen,mc,tc,c);
+        WindowScreen.windowsScreen(screen,mc,tc);
         this.tc = tc;
-        con = c;
     }
     
     
@@ -55,7 +53,7 @@ public class ClientChannelService implements Runnable,KeyInterface {
             while(!Thread.currentThread().isInterrupted()) {
             synchronized (this) {
                 
-                if(con.isBlockInputImage() == true) {
+                if(Constants.isBlockInputImage() == true) {
                 
                 SocketView.serverSocketAccept();
                 
@@ -111,7 +109,7 @@ public class ClientChannelService implements Runnable,KeyInterface {
         try {
             SocketView.setSecSocket(remotehost,port);          
             SocketView.secWriteobject(mks);
-            con.setBlockImage(true);
+            Constants.setBlockImage(true);
         } catch (IOException ex) {
              Logger.getLogger(ClientChannelService.class.getName()).log(Level.SEVERE, null, ex);
             try {            

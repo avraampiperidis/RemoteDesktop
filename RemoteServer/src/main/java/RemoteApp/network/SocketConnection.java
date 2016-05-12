@@ -36,15 +36,13 @@ public class SocketConnection implements Runnable {
     private static String password;
     private static String remotehost="";
     private boolean errorex = false;
-           
-    private static final String ALGORITHM = "AES";
-    private static final String TRANSFORMATION = "AES";
-    private static final String KEY = "kdif(34&4']qvDF@";
     
     
+         
     
     @Override
     public void run() {
+        
         
         Dimension fullScreen = Toolkit.getDefaultToolkit().getScreenSize();
         width = (int)fullScreen.getWidth()/Constants.getScreenDivider();
@@ -62,8 +60,8 @@ public class SocketConnection implements Runnable {
                             
                 SocketView.serversocketAccept();
                   
-                 Key secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
-                 Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+                 Key secretKey = new SecretKeySpec(Constants.KEY.getBytes(), Constants.ALGORITHM);
+                 Cipher cipher = Cipher.getInstance(Constants.TRANSFORMATION);
                  cipher.init(Cipher.DECRYPT_MODE, secretKey);
                                        
                  ClientStatus cs = null;
@@ -75,7 +73,7 @@ public class SocketConnection implements Runnable {
                          ClientStatus client = (ClientStatus)temp.getObject(cipher);
                          if(client.isRequest() == true) {
                              if(client.getPassword().equals(password)) {
-                                 cipher = Cipher.getInstance(TRANSFORMATION);
+                                 cipher = Cipher.getInstance(Constants.TRANSFORMATION);
                                  cipher.init(Cipher.ENCRYPT_MODE, secretKey);
                                  remotehost = client.getIp();
                                  ClientStatus csok = new ClientStatus(false,password,true,true,remotehost,screen);
@@ -89,12 +87,15 @@ public class SocketConnection implements Runnable {
                                  addtrayiconremotehost(remotehost);
                                  Constants.status = true;
                                  Constants.setServerChannelService(true);
-                                 ThreadContainer.setServerChannelServiceAndRun(new ServerChannelService(screen,fullScreen,remotehost));                                
                                  
-                                 Constants.setStopServer(false);                                
+                                 ThreadContainer.setServerChannelServiceAndRun(new ServerChannelService(screen,fullScreen,remotehost));
+                                        
+                                 Constants.setStopServer(false);
+                                 
                                  break;
-                             } else {
                                  
+                             } else {
+                                
                              }
                          }
                      }

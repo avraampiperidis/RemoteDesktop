@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="450" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RemoteApp.RemoteClientController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="450" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File" />             
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem  mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <ComboBox fx:id="combobox" prefWidth="150.0" />
+                  <Label layoutX="160.0" layoutY="5" text="select network interface" />
+                  <ListView fx:id="listview" layoutY="25.0" prefHeight="375.0" prefWidth="450" stylesheets="css/listview.css">   
+                      
+                 </ListView>               
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

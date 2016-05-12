@@ -8,27 +8,24 @@ import RemoteApp.model.serializables.MultiCast;
 
 public final class Constants {
     
+    private Constants() {}
     
-    private static int port5900 = 5900;
-    private Dimension dim;
+    
+    private static int port = 5900;
+    private static Dimension dim;
     public static boolean isConnected = false;
-    private boolean clientchannelservice = true;
-    private boolean connectToServer = true;
-    private boolean blockInputImage = true;
+    private static boolean clientchannelservice = true;
+    private static boolean connectToServer = true;
+    private static boolean blockInputImage = true;
     public static String thishost = "";
     private static HashMap<String,MultiCast> networkmap = new HashMap<>();
     
-    public Constants() {
-        
-    }
     
-   
-    
-    public synchronized static void addnetworkMap(String key,MultiCast mc) {
+    public  static void addnetworkMap(String key,MultiCast mc) {
         networkmap.put(key, mc);
     }
     
-    public synchronized static HashMap<String,MultiCast> getNetworkmap() {
+    public  static HashMap<String,MultiCast> getNetworkmap() {
         return networkmap;
     }
     
@@ -37,44 +34,44 @@ public final class Constants {
         
     }
     
-    public synchronized  boolean isBlockInputImage() {
+    public  static boolean isBlockInputImage() {
         return blockInputImage;
     }
     
-    public synchronized  void setBlockImage(boolean b) {
+    public static  void setBlockImage(boolean b) {
         blockInputImage = b;
     }
     
-    public  void setClientChannelService(boolean b) {
+    public static void setClientChannelService(boolean b) {
         clientchannelservice = b;
     }
     
-    public  boolean isClientChannelService() {
+    public static boolean isClientChannelService() {
         return clientchannelservice;
     }
     
-    public  boolean isRunningconnectToServer() {
+    public static boolean isRunningconnectToServer() {
         return connectToServer;
     }
     
-    public  void setRunningconnectToServer(boolean b){
+    public static void setRunningconnectToServer(boolean b){
         connectToServer = b;
     }
     
     public static int getPort() {
-        return port5900;
+        return port;
     }
     
     public static void setServerPort(int p) {
-        port5900 = p;
+        port = p;
     }
       
     
-    public  Dimension getDimension() {
+    public static Dimension getDimension() {
         return dim;
     }
     
-    public  void setDimension(Dimension d) {
+    public static void setDimension(Dimension d) {
         dim = d;
     }
     
