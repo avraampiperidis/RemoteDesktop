@@ -26,7 +26,7 @@ public class MultiCastStatus implements Runnable {
                     Thread.sleep(3000);  
                     
                         String multicast = "255.255.255.255";
-                        int port = 5900;
+                        int port = Constants.getServerPort();
                         
                         InetAddress group = InetAddress.getByName(multicast);
                         
