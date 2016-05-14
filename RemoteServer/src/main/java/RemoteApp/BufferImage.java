@@ -35,7 +35,7 @@ public class BufferImage implements Runnable {
 
 
 
-    public static  BufferedImage getImage() {
+    public static synchronized   BufferedImage getImage() {
         return image;
     }
 
